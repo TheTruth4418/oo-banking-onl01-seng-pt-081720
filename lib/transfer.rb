@@ -8,9 +8,9 @@ class Transfer
     @amount = amount
   end
   def valid?
-    @sender.valid? && @receiver.valid? ? true : false
+    @sender.valid? && @receiver.valid ? true : false
   end
-  def execute_transaction
+  def self.execute_transaction
       if @sender.balance < @amount && self.valid?
         @status = "rejected"
         return "Transaction rejected. Please check your account balance."
